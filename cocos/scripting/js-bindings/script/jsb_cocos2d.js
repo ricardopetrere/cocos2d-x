@@ -2507,6 +2507,14 @@ cc.Node.prototype.setNormalizedPosition = function(pos, y){
         cc.Node.prototype._setNormalizedPosition.call(this, cc.p(pos, y));
 };
 
+cc.Node.prototype._setPosition = cc.Node.prototype.setPosition;
+cc.Node.prototype.setPosition = function(pos, y){
+    if(y === undefined)
+        cc.Node.prototype._setPosition.call(this, pos);
+    else
+        cc.Node.prototype._setPosition.call(this, cc.p(pos, y));
+};
+
 /** returns a "world" axis aligned bounding box of the node. <br/>
  * @return {cc.Rect}
  */
