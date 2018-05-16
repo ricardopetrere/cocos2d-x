@@ -673,7 +673,7 @@ cc.FadeOut.prototype._ctor = function(duration) {
 };
 
 cc.TintTo.prototype._ctor = cc.TintBy.prototype._ctor = function(duration, red, green, blue) {
-    blue !== undefined && this.initWithDuration(duration, red, green, blue);
+    (red.r !== undefined || blue !== undefined) && this.initWithDuration(duration, red, green, blue);
 };
 
 cc.DelayTime.prototype._ctor = function(duration) {

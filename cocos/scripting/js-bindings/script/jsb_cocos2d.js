@@ -2082,7 +2082,7 @@ cc.blink = cc.Blink.create;
 cc.fadeTo = cc.FadeTo.create;
 cc.fadeIn = cc.FadeIn.create;
 cc.fadeOut = cc.FadeOut.create;
-cc.tintTo = cc.TintTo.create;
+// cc.tintTo = cc.TintTo.create;
 cc.tintBy = cc.TintBy.create;
 cc.delayTime = cc.DelayTime.create;
 cc.reverseTime = cc.ReverseTime.create;
@@ -2132,6 +2132,14 @@ cc.jumpBy = cc.JumpBy.create = function(duration, position, y, height, jumps){
         return cc.JumpBy._create(duration, position, height, jumps);
     }else{
         return cc.JumpBy._create(duration, cc.p(position, y), height, jumps);
+    }
+};
+cc.TintTo._create = cc.TintTo.create;
+cc.tintTo = cc.TintTo.create = function(duration, red, green, blue){
+    if (undefined === blue){
+        return cc.TintTo._create(duration, red.r, red.g, red.b);
+    }else{
+        return cc.TintTo._create(duration, red, green, blue);
     }
 };
 
